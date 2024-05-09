@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #42486CBF;
+    font-family: "Nunito", sans-serif;
+    }
+    
+    .container {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .head{
+        display: flex;
+        border-bottom: 1px solid #F1F2F4;
+    }
+.head i{
+    margin-right: 40px;
+    padding-top: 40px;
+ 
+}
+
+    .title {
+    padding-left: 24px;
+    padding-right: 15rem;
+    margin-bottom: 2rem;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 27.28px;
+    letter-spacing: -0.02em;
+    }
+    
+    .form {
+    flex-direction: column;
+    margin-top: 15px;
+    }
+    
+    .form-field {
+    width: rem;
+    margin: 24px 24px;
+    }
+    
+    .form-field label {
+    display: block;
+    font-family: Nunito;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.006em;
+    text-align: left;
+    color: #8589A0;
+
+    }
+    
+    .form-field input {
+    background-color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    width: 24.6rem;
+    border: 1px solid #F1F2F4;
+    }
+
+    .form-field .input-rak{
+        padding-right: 50px;
+    }
+    .form-field .input-karya{
+        padding-right: 70px;
+    }
+    .form-field .input-mapel{
+        padding-right: 80px;
+    }
+    
+    .submit-button {
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    background-color: #2680EB;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.006em
+    }
+    
+    .submit-button2 {
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    color: #6B718C;
+    border-radius: 8px;
+    border: 1px solid #E7E8EC;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.006em;
+    background-color: #ffffff;
+    }
