@@ -10,7 +10,7 @@
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('zan/style.css')}}">
+    <link rel="stylesheet" href="{{asset('zan/style.css')}}">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <aside id="sidebar" class="border rounded expand">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
-                    <img src="{{ asset('svg/logo.svg')}}" alt="" class="logo">
+                    <img src="{{asset('svg/logo.svg')}}" alt="" class="logo">
                 </button>
                 <div class="sidebar-logo">
                     <a href="#">PerpusGo</a>
@@ -67,7 +67,7 @@
             </ul>
             <div class="sidebar-footer border-top">
                 <a href="#" class="sidebar-link">
-                    <img src="{{asset("svg/logout.svg")}}" alt="" class="svg">
+                    <img src="{{asset('svg.logout.svg')}}" alt="" class="svg">
                     <span>Logout</span>
                 </a>
             </div>
@@ -84,20 +84,20 @@
                     </div>
                     <ul class=" d-flex ulcontent mt-2 ms-1" >
                         <div class=" d-flex gap-5 border border-end-0 border-start-0 border-top-0">
-                            <li><a href="{{route('pengaturan.profile')}}" class="list  ">Profile</a></li>
-                            <li><a href="{{route('pengaturan.rak')}}" class="list ">Nomor Rak</a></li>
-                            <li><a href="{{route('pengaturan.subjek')}}" class="list activep">Subjek</a></li>
-                            <li><a href="{{ route('pengaturan.karya')}}" class="list">Bentuk Karya</a></li>
+                            <li><a href="{{ route('pengaturan.profile')}}" class="list  ">Profile</a></li>
+                            <li><a href="{{ route('pengaturan.rak')}}" class="list ">Nomor Rak</a></li>
+                            <li><a href="{{ route('pengaturan.subjek')}}" class="list ">Subjek</a></li>
+                            <li><a href="{{ route('pengaturan.karya')}}" class="list activep">Bentuk Karya</a></li>
                             <li><a href="{{ route('pengaturan.matpel')}}" class="list">Mata Pelajaran</a></li>
                         </div>
                     </ul>
                     <div class="container-lg  p-3 nomorrak d-block">
                         <div class="d-flex ">
-                            <h6 class="justify-content-between h6rak pt-1 ps-2">Subjek</h6>
+                            <h6 class="justify-content-between h6rak pt-1 ps-2">Bentuk Karya</h6>
                             <div class="me-3">
                                 <input type="search" class="form-control" id="inputSearch" aria-describedby="search">
                             </div>
-                            <a href="{{route('pengaturan.tambahsub')}}" class="me-4 pt-2 border ps-3 pe-3 pb-2 rak-tambah text-center">Tambah</a>
+                            <a href="{{route('pengaturan.tambahkarya')}}" class="me-4 pt-2 border ps-3 pe-3 pb-2 rak-tambah text-center">Tambah</a>
                         </div>    
                         <table class="table mt-3">
                             <thead>
@@ -108,28 +108,27 @@
                               </tr>
                             </thead>
                             <tbody>
-                            @php
-                                $no = 0;
-                            @endphp
-
-                            @foreach ($subjek as $item)
-                                
-                            <tr>
-                              <th scope="row" class="text-center">{{ ++$no}}</th>
-                              <td>{{$item->nama_subjek}}</td>
-                              <td class="d-flex justify-content-center">
-                                  <a href="{{route('pengaturan.subjekedit', $item->id)}}" class="border rounded p-1 ps-2 pe-2 text-black me-3  ">
-                                      <i class="lni lni-pencil"></i>
-                                  </a>
-                              
-                                  <form action="" method="post" class=" p-1 ps-2 pe-2 border rounded">
-                                      @csrf
-                                      @method('DELETE')
-                                    <a href="{{route('pengaturan.destroysub', $item->id)}}" class=" text-black"><i class="lni lni-trash-can"></i></a>
-                                  </form>
-                              </td>
-                            </tr>
-                            @endforeach
+                                @php
+                                    $no = 0;
+                                @endphp
+                                @foreach ($karya as $item)
+                                <tr>
+                                  <th scope="row" class="text-center">{{++$no}}</th>
+                                  <td>{{$item->bentuk_karya}}</td>
+                                  <td class="d-flex justify-content-center">
+                                      <a href="{{route('pengaturan.karyaedit', $item->id)}}" class="border rounded p-1 ps-2 pe-2 text-black me-3  ">
+                                          <i class="lni lni-pencil"></i>
+                                      </a>
+                                  
+                                      <form action="" method="post" class=" p-1 ps-2 pe-2 border rounded">
+                                          @csrf
+                                          @method('DELETE')
+                                        <a href="{{route('pengaturan.destroykarya', $item->id)}}" class=" text-black"><i class="lni lni-trash-can"></i></a>
+                                      </form>
+                                  </td>
+                                </tr>
+                                    
+                                @endforeach
                             </tbody>
                           </table>
                     </div>
@@ -140,6 +139,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <script src="{{asset('zan/script.js')}}"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

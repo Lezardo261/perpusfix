@@ -50,9 +50,9 @@
                 <h5>Pengaturan</h5>
                 <li><a href="{{ route('pengaturan.profile')}}" class="active">Profil</a>
                 <li><a href="{{ route('pengaturan.rak')}}">Nomor Rak</a>
-                <li><a href="subjek.html">Subjek</a>
-                <li><a href="Bentukkarya.html">Bentuk Karya</a>
-                <li><a href="matapelajaran.html">Mata Pelajaran</a>
+                <li><a href="{{route('pengaturan.subjek')}}">Subjek</a>
+                <li><a href="{{ route('pengaturan.karya')}}">Bentuk Karya</a>
+                <li><a href="{{ route('pengaturan.matpel')}}">Mata Pelajaran</a>
                 </li>
 
             </div>

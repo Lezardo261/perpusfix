@@ -83,11 +83,11 @@
                     </div>
                     <ul class=" d-flex ulcontent mt-2 ms-1" >
                         <div class=" d-flex gap-5 border border-end-0 border-start-0 border-top-0">
-                            <li><a href="" class="list  ">Profile</a></li>
-                            <li><a href="" class="list activep">Nomor Rak</a></li>
-                            <li><a href="" class="list">Subjek</a></li>
-                            <li><a href="" class="list">Bentuk Karya</a></li>
-                            <li><a href="" class="list">Mata Pelajaran</a></li>
+                            <li><a href="{{route('pengaturan.profile')}}" class="list  ">Profile</a></li>
+                            <li><a href="{{route('pengaturan.rak')}}" class="list activep">Nomor Rak</a></li>
+                            <li><a href="{{route('pengaturan.subjek')}}" class="list">Subjek</a></li>
+                            <li><a href="{{ route('pengaturan.karya')}}" class="list">Bentuk Karya</a></li>
+                            <li><a href="{{ route('pengaturan.matpel')}}" class="list">Mata Pelajaran</a></li>
                         </div>
                     </ul>
                     <div class="container-lg  p-3 nomorrak d-block">
@@ -122,7 +122,7 @@
                                           <i class="lni lni-pencil"></i>
                                       </a>
                                   
-                                      <form action="" method="post" class=" p-1 ps-2 pe-2 border rounded">
+                                      <form action="" method="" class=" p-1 ps-2 pe-2 border rounded">
                                           @csrf
                                           @method('DELETE')
                                           <a href="{{route('pengaturan.hapus', $item->id)}}" class=" text-black"><i class="lni lni-trash-can"></i></a>
