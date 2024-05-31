@@ -2,28 +2,78 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\bentukkarya;
+use App\Models\User;
 use App\Models\matpel;
-use App\Models\nomorrak;
 use App\Models\subjek;
+use App\Models\nomorrak;
+use App\Models\bentukkarya;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+
 
 class Profilecontroller extends Controller
 {
     public function index(){
-        return view('pengaturan.profile');
+        $user = Auth::user();
+        return view('pengaturan.profile', compact('user'));
     }
     public function ubahinfo(){
-        return view('pengaturan.ubahinfo');
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            if($user){
+                return view('pengaturan.ubahinfo', compact('user'));
+            }
+        }
     }
+    public function infostore(Request $request){
+        // dd($request->all());
+        $user = User::find(Auth::user()->id);
+        if($user){
+            $user->name = $request->input('name');
+            $user->nomorwa = $request->input('whatsapp');
+            $user->save();
+            return redirect()->route('pengaturan.profile');
+        }
+    }
+    
     public function ubahpw(){
-        return view('pengaturan.ubahpw');
+        $user = Auth::user();
+        return view('pengaturan.ubahpw', compact('user'));
     }
 
+    public function pwstore(Request $request){
+        $cek = Hash::check($request->current_password, auth()->user()->password);
+        if(!$cek){
+            return back()->with('error', 'old password salah');
+        }
+        if($request->newpassword != $request-> repeatpassword){
+            return back()->with('error', 'password tidak sama');
+        }
+        auth()->user()->update([
+            'password' => Hash::make($request->newpassword)
+        ]);
+        return back()->with('status', 'berhasil');
+    }
 
+    public function addimage(Request $request){
+        $request->validate([
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // adjust the validation rules as needed
+        ]);
 
+        $photo = $request->file('photo');
+        $path = $photo->store('photos', 'public'); // adjust storage directory as needed
+
+        // Save the path to the database, associate with user if needed
+        // Example:
+        // $user = Auth::user();
+        // $user->photos()->create(['path' => $path]);
+
+        return redirect()->back()->with('success', 'Photo uploaded successfully.');
+    }
 
 
     public function showrak(){

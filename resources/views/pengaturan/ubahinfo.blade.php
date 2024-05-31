@@ -17,19 +17,20 @@
             <h5 class="title">Ubah Informasi</h5>
             <i class="fa-solid fa-xmark fa-lg"></i>
         </div>
-    <form class="form" action="{{route('infostore')}}">
+    <form class="form" action="{{route('infostore')}}" method="POST">
+        @csrf
         <div class="form-field">
         <label for="name">Nama</label>
-        <input type="text" id="name" name="name" placeholder="Super Admin">
+        <input type="text" id="name" name="name" placeholder="Super Admin" value="{{ $user->name }}">
         </div>
         <div class="form-field">
         <label for="whatsapp">Nomor WhatsApp</label>
-        <input type="tel" id="whatsapp" name="whatsapp" placeholder="Nomor WhatsApp">
+        <input type="number" id="whatsapp" name="whatsapp" placeholder="Nomor WhatsApp" value="{{$user->nomorwa}}">
         </div>
         <button type="submit" class="submit-button">Simpan</button>
 
     </form>
-    <button type="submit" class="submit-button2"><a href="">Kembali</a></button>
+    <button type="submit" class="submit-button2"><a href="{{route('pengaturan.profile')}}">Kembali</a></button>
     </div>
 </body>
 </html>

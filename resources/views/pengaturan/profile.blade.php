@@ -93,7 +93,7 @@
                         <div class="d-flex">
                             <div class="content-foto border border-bottom-0 border-start-0 border-end-1 border-top-0">
                                 <h6 class="mb-4 textfoto">Foto</h6>
-                                <img src="pp.png" alt="" class="img border rounded">
+                                <img src="{{ asset('storage/' . $user->path) }}" alt="" class="img border rounded">
                                 <p class=""><!-- Button trigger modal -->
                                     <button type="button" class="btn btn-foto mt-2 " data-bs-toggle="modal" data-bs-target="#exampleModal">
                                       Ganti Foto
@@ -108,11 +108,13 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                           </div>
                                           <div class="modal-body">
-                                            <form action="" method="post">
+                                            <form action="{{route('addimage')}}" method="POST">
+                                                @csrf
                                                 <div class="input-group mb-3">
-                                                    <input type="file" class="form-control" id="inputGroupFile02">
+                                                    <input type="file" class="form-control" id="inputGroupFile02" name="photo">
                                                     <label class="input-group-text" for="inputGroupFile02">Upload</label>
                                                 </div>
+                                                <button>simpan</button>
                                             </form>
                                           </div>
                                           <div class="modal-footer">
@@ -133,17 +135,17 @@
                                     <div class="showinfo lh-1 mt-4 ">
                                         <div class="namanya d-flex justify-content-between">
                                             <p class="judulinfo">Nama</p>
-                                            <p class="ini-show">Super Admin</p>
+                                            <p class="ini-show">{{$user->name}}</p>
                                         </div>
                                         <div class="nomornya d-flex justify-content-between">
 
                                             <p class="judulinfo">Nomor WhatsApp</p>
-                                            <p class="ini-show">085951420702</p>
+                                            <p class="ini-show">{{$user->nomorwa}}</p>
                                         </div>
                                     </div>
                                     <div class="d-flex password mt-4">
                                         <h6 class="-pw">Ubah Password</h6>
-                                        <a href="" class="text-btn p-1 border rounded ps-2 pe-2 me-5">Ubah</a>
+                                        <a href="{{route('ubahpw')}}" class="text-btn p-1 border rounded ps-2 pe-2 me-5">Ubah</a>
                                     </div>
                                 </div>
                             </div>

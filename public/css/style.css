@@ -1,0 +1,130 @@
+body {
+  background-color: #D4E6FBB8; /* Biru muda */
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito';
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.left-div {
+  width: 499px; /* Lebar div */
+  height: 700px; /* Tinggi div */
+  margin-top: 24px; /* Jarak atas */
+  margin-left: 0px; /* Jarak kiri */
+  padding: 48px ; /* Padding */
+  gap: 10px; /* Jarak antar elemen */
+  border-radius: 12px ; /* Sudut div */
+  background-color: white; /* Warna latar belakang */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+}
+
+.header {
+  width: 403px;
+  height: 33px;
+  color: #42486C;
+  size: 24px;
+  font-weight: 900; /* Membuat teks cetak tebal */
+}
+
+.header span {
+  color: #2680EB;
+}
+
+.header1 {
+  width: 403px;
+  height: 22px;
+  color: #8589A0;
+  size: 16px;
+  font-weight: 800; /* Membuat teks cetak tebal */
+}
+
+.hnomor {
+  width: 403px;
+  height: 22px;
+  color: #42486C;
+  margin-top: 50px;
+  size: 16px;
+  font-weight: 800; /* Membuat teks cetak tebal */
+}
+
+.label{
+  width: 403px;
+  height: 22px;
+  color: #42486C;
+  margin-top: 60px;
+  size: 14px;
+  font-weight: 400; /* Membuat teks cetak tebal */
+}
+
+.textbox{
+  border-color: #F1F2F4;
+  border-width: 1px;
+  border-radius: 18px;
+}
+
+.btn{
+  width: 400px;
+  margin-top: 100px;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  background-color: #2680EB;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+
+.right-div {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  width: 100%; /* Lebar div */
+  height: 100%; /* Tinggi div */
+  border-radius: 50px 0px 0px 50px; /* Sudut div */
+  background-color: white; /* Warna latar belakang */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+  margin-left: 60px; /* Sesuaikan margin kiri */ /* Padding */
+}
+.input-box{
+  width: 403px;
+  padding: 14px 16px;
+  border-radius: 50px;
+}
+
+/* Menambahkan style tambahan sesuai dengan layout */
+
+/* Menambahkan style tambahan sesuai dengan layout */
+
+.image{
+  width: 671px;  /* Lebar div */
+  height: 100%; /* Tinggi div */
+  margin-left: 100px;
+}
+
+@media screen and (max-width:800px ){
+  .image{
+    display: none;
+    width: 471px;  /* Lebar div */
+    height: 100%; /* Tinggi div */
+    margin-left: 50px;
+  }
+
+  .right-div{
+    display: none;
+  }
+
+  .left-div {
+    height: 600px;
+  }
+
+}
+
