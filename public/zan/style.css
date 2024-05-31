@@ -324,7 +324,7 @@ th{
 }
 .info-header{
     justify-content: space-between;
-    width: 890px;
+    width: 800px;
     padding-right: 14px;
 }
 .-info{
@@ -375,7 +375,7 @@ th{
 
 .password{
     justify-content: space-between;
-    width: 890px;
+    width: 800px;
     padding-right: 14px;
 }
 .-pw{

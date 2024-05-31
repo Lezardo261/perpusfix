@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Auth;
 class Profilecontroller extends Controller
 {
     public function index(){
-        $user = Auth::user();
-        return view('pengaturan.profile', compact('user'));
+        return view('pengaturan.profile');
     }
+    public function ubahinfo(){
+        return view('pengaturan.ubahinfo');
+    }
+    public function ubahpw(){
+        return view('pengaturan.ubahpw');
+    }
+
+
+
+
 
     public function showrak(){
         $rak = DB::table('nomorrak')->get();
@@ -156,5 +165,29 @@ class Profilecontroller extends Controller
     public function destroymatpels($id){
         DB::table('matpels')->where('id', $id)->delete();
         return redirect()->back();
+    }
+
+
+    // search
+
+    public function searchrak(Request $request){
+        $search = $request->input('searchrak');
+        $rak = nomorrak::where('nomorrak', 'LIKE', "%{$search}%")->get();
+        return view('pengaturan.rak', compact('rak'));
+    }
+    public function searchsubjek(Request $request){
+        $search = $request->input('searchsubjek');
+        $subjek = subjek::where('nama_subjek', 'LIKE', "%{$search}%")->get();
+        return view('pengaturan.subjek', compact('subjek'));
+    }
+    public function searchkarya(Request $request){
+        $search = $request->input('searchkarya');
+        $karya = bentukkarya::where('bentuk_karya', 'LIKE', "%{$search}%")->get();
+        return view('pengaturan.karya', compact('karya'));
+    }
+    public function searchmatpel(Request $request){
+        $search = $request->input('searchmatpel');
+        $matpel = matpel::where('matapelajaran', 'LIKE', "%{$search}%")->get();
+        return view('pengaturan.matpel', compact('matpel'));
     }
 }

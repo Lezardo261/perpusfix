@@ -21,6 +21,11 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('pengaturan', [Profilecontroller::class, 'index'])->name('pengaturan.profile');
+    Route::get('ubahinfo', [Profilecontroller::class, 'ubahinfo'])->name('ubahinfo');
+    Route::post('infostore', [Profilecontroller::class, 'infostore'])->name('infostore');
+    Route::get('ubahpw', [Profilecontroller::class, 'ubahpw'])->name('ubahpw');
+    Route::post('pwstore', [Profilecontroller::class, 'pwstore'])->name('pwstore');
+    Route::post('addimage', [Profilecontroller::class, 'addimage'])->name('addimage');
     Route::get('pengunjung', function () {
         return view('pengunjung');
     });
@@ -56,6 +61,13 @@ Route::prefix('admin')->group(function () {
     Route::get('matpeledit/{id}', [Profilecontroller::class, 'matpeledit'])->name('pengaturan.matpeledit');
     Route::post('matpel/store/{id}', [Profilecontroller::class, 'matpeleditstore'])->name('pengaturan.matpeleditstore');
     Route::get('deletematpel/{id}', [Profilecontroller::class, 'destroymatpels'])->name('pengaturan.destroymatpel');
+
+    // search
+    Route::get('searchrak', [Profilecontroller::class, 'searchrak'])->name('seach.rak');
+    Route::get('searchsubjek', [Profilecontroller::class, 'searchsubjek'])->name('seach.subjek');
+    Route::get('searchkarya', [Profilecontroller::class, 'searchkarya'])->name('seach.karya');
+    Route::get('searchmatpel', [Profilecontroller::class, 'searchmatpel'])->name('seach.matpel');
+
 
     Route::get('login', [Controller::class, 'login']);
     Route::post('loginstore', [Controller::class, 'store'])->name('login.store');

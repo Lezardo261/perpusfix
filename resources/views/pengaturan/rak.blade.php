@@ -93,9 +93,11 @@
                     <div class="container-lg  p-3 nomorrak d-block">
                         <div class="d-flex ">
                             <h6 class="justify-content-between h6rak pt-1 ps-2">Nomor Rak</h6>
-                            <div class="me-3">
-                                <input type="search" class="form-control" id="inputSearch" aria-describedby="search">
-                            </div>
+                            <form action="{{route('seach.rak')}}" method="get">
+                                <div class="me-3">
+                                    <input type="search" class="form-control" id="inputSearch" aria-describedby="search" name="searchrak">
+                                </div>
+                            </form>
                             <a href="{{route('pengaturan.tambah')}}" class="me-4 pt-2 border ps-3 pe-3 pb-2 rak-tambah text-center">Tambah</a>
                         </div>    
                         <table class="table mt-3">

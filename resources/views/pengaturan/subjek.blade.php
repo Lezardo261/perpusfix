@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar With Bootstrap</title>
+    <title>Subjek</title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -94,9 +94,11 @@
                     <div class="container-lg  p-3 nomorrak d-block">
                         <div class="d-flex ">
                             <h6 class="justify-content-between h6rak pt-1 ps-2">Subjek</h6>
-                            <div class="me-3">
-                                <input type="search" class="form-control" id="inputSearch" aria-describedby="search">
-                            </div>
+                            <form action="{{route('seach.subjek')}}" method="get">
+                                <div class="me-3">
+                                    <input type="search" class="form-control" id="inputSearch" aria-describedby="search" name="searchsubjek">
+                                </div>
+                            </form>
                             <a href="{{route('pengaturan.tambahsub')}}" class="me-4 pt-2 border ps-3 pe-3 pb-2 rak-tambah text-center">Tambah</a>
                         </div>    
                         <table class="table mt-3">
