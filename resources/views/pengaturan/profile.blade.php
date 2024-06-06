@@ -25,7 +25,12 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
-                        <img src="pp.png" alt="" width="22" height="22" class="border rounded">
+                        
+                                @if ($user->image)
+                                <img src="{{url('photo'). '/' .$user->image }}" alt="" width="22" height="22" class="border rounded">
+                                @endif
+                          
+                    <!-- <img src="pp.png" alt="" width="22" height="22" class="border rounded"> -->
                         <span>Profile</span>
                     </a>
                 </li>
@@ -93,7 +98,11 @@
                         <div class="d-flex">
                             <div class="content-foto border border-bottom-0 border-start-0 border-end-1 border-top-0">
                                 <h6 class="mb-4 textfoto">Foto</h6>
-                                <img src="{{ asset('storage/' . $user->path) }}" alt="" class="img border rounded">
+                                <div>
+                                    @if ($user->image)
+                                    <img src="{{url('photo'). '/' .$user->image }}" alt="" class="img border rounded">
+                                    @endif
+                                </div>
                                 <p class=""><!-- Button trigger modal -->
                                     <button type="button" class="btn btn-foto mt-2 " data-bs-toggle="modal" data-bs-target="#exampleModal">
                                       Ganti Foto
@@ -108,7 +117,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                           </div>
                                           <div class="modal-body">
-                                            <form action="{{route('addimage')}}" method="POST">
+                                            <form action="{{route('addimage')}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="input-group mb-3">
                                                     <input type="file" class="form-control" id="inputGroupFile02" name="photo">

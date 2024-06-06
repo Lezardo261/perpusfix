@@ -61,12 +61,17 @@ class Profilecontroller extends Controller
 
     public function addimage(Request $request){
         $request->validate([
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // adjust the validation rules as needed
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Sesuaikan aturan validasi sesuai kebutuhan
         ]);
-
+    
         $photo = $request->file('photo');
-        $path = $photo->store('photos', 'public'); // adjust storage directory as needed
-
+        $path = $photo->getClientOriginalExtension(); // Mengambil ekstensi asli file
+        $photoName = date('ymdhis') . "." . $path;
+        $photo->move(public_path('photo'), $photoName); // Menyimpan file gambar ke direktori publik
+    
+        $user = Auth::user(); // Mendapatkan pengguna yang diautentikasi
+        $user->image = $photoName; // Menyimpan nama file gambar ke kolom 'image' pada tabel 'users'
+        $user->save(); // Menyimpan perubahan ke database
         // Save the path to the database, associate with user if needed
         // Example:
         // $user = Auth::user();
